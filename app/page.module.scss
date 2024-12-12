@@ -1,0 +1,399 @@
+.body-div {
+  background-color: black;
+  height: fit-content;
+}
+
+/* Landing Page */
+
+.page {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: handlee;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: whitesmoke;
+  align-items: center;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    cursor: pointer;
+
+    .link-com {
+      color: whitesmoke;
+      text-decoration: none;
+    }
+  }
+
+  .login-btn {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+  }
+
+  .separator {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .hamburger-menu {
+    display: none; // Hidden by default
+    flex-direction: column;
+    gap: 0.3rem;
+    cursor: pointer;
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: whitesmoke;
+      transition: 0.3s;
+    }
+  }
+
+  .menu-links {
+    display: block; // Always visible on larger screens
+
+    &.menu-active {
+      display: block; // Ensure it's visible when active
+    }
+  }
+
+  .close-menu {
+    display: none;
+  }
+}
+
+// Media query for smaller screens
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    justify-content: space-between;
+
+    .hamburger-menu {
+      display: flex; // Show hamburger menu on small screens
+    }
+
+    ul {
+      display: none; // Hide standard links on small screens
+    }
+
+    .login-btn {
+      display: none; // Hide login buttons on small screens
+    }
+
+    .menu-links {
+      position: fixed;
+      top: 0;
+      right: -100%; // Start off-screen
+      width: 250px; // Adjust as needed
+      height: 100vh;
+      background-color: black;
+      padding: 20px;
+      transition: right 0.3s ease-in-out;
+      z-index: 999;
+
+      &.menu-active {
+        right: 0; // Show when active
+      }
+
+      .close-menu {
+        display: block;
+        background-color: #000000;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: whitesmoke;
+        font-size: 40px;
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+        li {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.hero-area {
+  height: 88vh;
+  color: whitesmoke;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+
+  .explore-menu {
+    text-decoration: none;
+    color: black;
+  }
+
+  .hero-area-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    width: 40vw;
+
+    h5 {
+      font-size: 0.8em;
+    }
+
+    h1 {
+      font-size: 2.7em;
+      color: #dcca87;
+    }
+
+    p {
+      font-size: 0.7em;
+      color: gray;
+    }
+
+    button {
+      background-color: #dcca87;
+      padding: 8px 19px 8px 19px;
+      border: none;
+      font-size: 0.8em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ab9853;
+      }
+    }
+  }
+
+  .hero-area-pic-container {
+    width: 30vw;
+
+    .hero-area-pic {
+      width: 30vw;
+    }
+  }
+}
+
+/* Menu Page */
+
+.pageContainer {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  color: whitesmoke;
+  padding: 20px;
+  font-family: handlee;
+  box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scroll
+}
+
+.food-area {
+  color: whitesmoke;
+  background-color: #000000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%; // Ensure content doesn't exceed viewport width
+  overflow-x: hidden;
+
+  .food-area-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    span {
+      background-color: rgb(0, 0, 0);
+      border: 2px solid #dcca87;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+
+
+    .food-area-meal {
+      color: rgb(215, 221, 233);
+      width: 6vw;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+  .food-area-cate {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search-bar {
+    width: 190%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+    .search-input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #dcca87;
+      border-radius: 5px;
+      background-color: #000000;
+      color: whitesmoke;
+
+      &::placeholder {
+        color: #888;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #ab9853;
+      }
+    }
+  }
+  .no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    color: #dcca87;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.food-area-table-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.food-area-table {
+  display: flex;
+  width: 40vw;
+  flex-direction: column;
+  background-color: rgb(97, 96, 98);
+  border: 2px solid #dcca87;
+  padding: 30px;
+  border-radius: 10px;
+  gap: 10px;
+  height: fit-content;
+  }
+
+  @media screen and (min-width: 768px){
+.food-area-table-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+    .food-area-table{
+      width: 20vw;
+    }
+  }
+
+/* Food Details Page */
+.food-details-container {
+  background-color: black;
+  color: #ffffff;
+  height: fit-content;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: handlee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+
+  a {
+    text-decoration: underline;
+    color: #ffffff;
+  }
+  
+
+  .food-details-ingredients {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li {
+      list-style: none;
+      text-align: center;
+      border: 1px solid #c7c6c3;
+      padding-left: 3em;
+      padding-right: 3em;
+      padding-top: 0;
+      font-size: 0.9em;
+      margin-right: 30px;
+    }
+  }
+
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.food-image {
+  width: 40vw;
+}
+@media screen and (min-width: 768px){
+  .food-image {
+    width: 25vw;
+  }
+}
+
+.food-details-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  width: 95vw;
+  font-size: 0.7em;
+  text-decoration: none;
+}
+
+.food-area-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.7em;
+  text-decoration: none;
+  .food-details-home{
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+  }
+}
